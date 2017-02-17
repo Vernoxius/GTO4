@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextTurnButton : MonoBehaviour {
+public class Unit1 : MonoBehaviour {
+    public GameObject unit;
+    public int Wood = 100;
+    public int Food = 0;
+    public int gold = 0;
+    public ResourceManager resourceManager;
 
 	// Use this for initialization
 	void Start () {
@@ -11,11 +16,6 @@ public class NextTurnButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+		
 	}
-
-    public void NextTurn()
-    {
-        GameController.maincontroller.switchTurn = true;
-    }
 }
