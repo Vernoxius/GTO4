@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int p1Resource1 = 30;
-    public int p1Resource2 = 20;
-    public int p1Resource3 = 10;
-    public int p2Resource1 = 0;
-    public int p2Resource2 = 0;
-    public int p2Resource3 = 0;
+    public int p1Wood = 30;
+    public int p1Food = 20;
+    public int p1Gold = 10;
+    public int p2Wood = 0;
+    public int p2Food = 0;
+    public int p2Gold = 0;
 
     // Use this for initialization
     void Start()
@@ -23,92 +23,57 @@ public class ResourceManager : MonoBehaviour
 
     }
 
-    public void AddResources(int resource1, int resource2, int resource3, int player)
+    public void AddResources(int wood, int food, int gold, int player)
     {
         if (player == 1)
         {
-            p1Resource1 += resource1;
-            p1Resource2 += resource2;
-            p1Resource3 += resource3;
+            p1Wood += wood;
+            p1Food += food;
+            p1Gold += gold;
         }
         else if (player == 2)
         {
-            p2Resource1 += resource1;
-            p2Resource2 += resource2;
-            p2Resource3 += resource3;
+            p2Wood += wood;
+            p2Food += food;
+            p2Gold += gold;
         }
     }
 
-    public void RemoveResources(int resource1, int resource2, int resource3, int player)
+    public void RemoveResources(int wood, int food, int gold, int player)
     {
         if (player == 1)
         {
-            p1Resource1 -= resource1;
-            p1Resource2 -= resource2;
-            p1Resource3 -= resource3;
+            p1Wood -= wood;
+            p1Food -= food;
+            p1Gold -= gold;
         }
         else if (player == 2)
         {
-            p2Resource1 -= resource1;
-            p2Resource2 -= resource2;
-            p2Resource3 -= resource3;
+            p2Wood -= wood;
+            p2Food -= food;
+            p2Gold -= gold;
         }
     }
 
-    public bool CheckForResource(int resourceType, int player, int amount)
+    public bool CheckForResource(int wood, int food, int gold, int player)
     {
-        if(player == 1)
+        if (player == 1)
         {
-            switch (resourceType)
+            if (p1Wood >= wood && p1Food >= food && p1Gold >= gold)
             {
-                case 1:
-                    if(p1Resource1 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                case 2:
-                    if(p1Resource2 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                case 3:
-                    if(p1Resource3 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                default:
-                    return false;
+                return true;
             }
+            return false;
         }
+
         else if (player == 2)
         {
-            switch (resourceType)
+            if (p2Wood >= wood && p2Food >= food && p2Gold >= gold)
             {
-                case 1:
-                    if (p2Resource1 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                case 2:
-                    if (p2Resource2 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                case 3:
-                    if (p2Resource3 >= amount)
-                    {
-                        return true;
-                    }
-                    return false;
-                default:
-                    return false;
+                return true;
             }
+            return false;
         }
         return false;
-    }    
+    }
 }

@@ -1,21 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit1 : MonoBehaviour {
-    public GameObject unit;
-    public int Wood = 100;
-    public int Food = 0;
-    public int gold = 0;
-    public ResourceManager resourceManager;
+public class Unit1 : Unit
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+        movementRange = 2;
+        attackRange = 1;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
