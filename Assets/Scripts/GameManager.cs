@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
                         Debug.Log("Pang");
                         currentSelectedUnit.GetComponent<Unit>().attacking = false;
                         currentSelectedUnit.GetComponent<Unit>().allowedToAttack = false;
-                        Destroy(tileHit.unit);
+                        Destroy(tileHit.unit.gameObject);
                         listOfUnits.Remove(tileHit.unit);
                         tileHit.currentlyOccupied = false;
 
@@ -113,12 +113,13 @@ public class GameManager : MonoBehaviour
                     }
                 }
 
-                else if (currentSelectedTile != null)
+                if (currentSelectedTile != null)
                 {
                     currentSelectedTile.GetComponent<Tile>().UnSelect();
                     selectedTiles.Remove(currentSelectedTile.GetComponent<Tile>());
                     currentSelectedTile = null;
                     currentSelectedUnit = null;
+                    UnselectAll();
                 }
 
 
@@ -225,7 +226,7 @@ public class GameManager : MonoBehaviour
             unitIns = Instantiate(unit1, tile.transform.position, Quaternion.identity);
             tile.unit = unitIns;
             tile.unit.x = tile.x;
-            tile.unit.y = tile.y;
+            tile.unit.z = tile.y;
             unitIns.name = "unit1_" + numberOfUnit1++;
             unitIns.player = currentPlayer;
             listOfUnits.Add(unitIns);
@@ -238,7 +239,7 @@ public class GameManager : MonoBehaviour
             unitIns = Instantiate(unit2, tile.transform.position, Quaternion.identity);
             tile.unit = unitIns;
             tile.unit.x = tile.x;
-            tile.unit.y = tile.y;
+            tile.unit.z = tile.y;
             unitIns.name = "unit2_" + numberOfUnit2++;
             unitIns.player = currentPlayer;
             listOfUnits.Add(unitIns);

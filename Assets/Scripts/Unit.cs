@@ -12,22 +12,26 @@ public class Unit : MonoBehaviour
     public int player;
     public GameObject unit;
     public ResourceManager resourceManager;
-    public Vector3 newLocation;
     public int movementRange;
     public int attackRange;
-    public int x;
-    public int y;
+    public float x;
+    public float y;
+    public float z;
     public int iterationCounter = 0;
     public LayerMask layerMask;
     public bool allowedToMove = true;
     public bool allowedToAttack = true;
     public bool moving = false;
     public bool attacking = false;
+    public bool startMoving = false;
+    public bool doneMoving = false;
+    public Vector3 newPosition;
+    public float pos = 0;
 
 
     void Update()
     {
-
+        
     }
 
     public void SelectUnit()
@@ -37,7 +41,9 @@ public class Unit : MonoBehaviour
 
     public void Move(Vector3 newPosition)
     {
-        this.transform.position = newPosition;
+        pos = 0;
+        startMoving = true;
+        this.newPosition = newPosition;
         this.moving = false;
         this.attacking = false;
         this.allowedToMove = false;
