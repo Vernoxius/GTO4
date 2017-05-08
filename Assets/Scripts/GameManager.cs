@@ -197,7 +197,9 @@ public class GameManager : MonoBehaviour
     public void SpawnCheck(Unit unit)
     {
         allowedToSpawn = resourceManager.CheckForResource(unit.wood, unit.food, unit.gold, currentPlayer);
-
+        Debug.Log(unit.wood);
+        Debug.Log(unit.food);
+        Debug.Log(unit.gold);
         if (allowedToSpawn)
         {
             for (int i = 0; i < 8; i++)

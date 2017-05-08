@@ -20,6 +20,7 @@ public class Unit2 : Unit {
             if (pos >= 1)
             {
                 startMoving = false;
+                animator.SetBool("Walking", false);
                 doneMoving = true;
                 x = newPosition.x;
                 y = newPosition.y;

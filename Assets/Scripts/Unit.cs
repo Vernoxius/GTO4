@@ -27,7 +27,8 @@ public class Unit : MonoBehaviour
     public bool doneMoving = false;
     public Vector3 newPosition;
     public float pos = 0;
-
+    public Animator animator;
+    
 
     void Update()
     {
@@ -43,7 +44,9 @@ public class Unit : MonoBehaviour
     {
         pos = 0;
         startMoving = true;
+        animator.SetBool("Walking", true);
         this.newPosition = newPosition;
+        this.transform.LookAt(newPosition);
         this.moving = false;
         this.attacking = false;
         this.allowedToMove = false;
